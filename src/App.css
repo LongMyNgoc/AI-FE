@@ -1,0 +1,81 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Chiều cao 100% */
+  margin: 0;
+}
+
+/* Container chính */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+/* Tiêu đề */
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+/* Vùng nội dung */
+.content-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* Vùng nhập văn bản */
+.input-area {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  resize: none; /* Không cho thay đổi kích thước */
+}
+
+/* Nút tạo đề thi */
+.generate-btn {
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.generate-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Vùng hiển thị đề thi */
+.exam-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
