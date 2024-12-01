@@ -1,41 +1,68 @@
 import './App.css';
-import axios from 'axios';
 import { useState } from 'react';
-import QuizForm from './components/QuizForm';
-import QuestionList from './components/QuestionList';
-
-interface MCQ {
-  questionStem: string;
-  answerChoices: string[];
-  correctAnswer: string;
-}
+import QuizForm from './components/Spacy/QuizForm';
+import QuestionList from './components/Spacy/QuestionList';
+import TextInputForm from './components/Bert/TextInputForm';
+import { generateQuiz } from './fetch/useFetchSpacy';
+import { MCQ } from './types';
+import { AiOutlineForm, AiOutlineRobot } from "react-icons/ai";
 
 function App() {
   const [questions, setQuestions] = useState<MCQ[]>([]);
+  const [showForm, setShowForm] = useState<boolean>(false);
+  const [showTextInputForm, setShowTextInputForm] = useState<boolean>(false);
 
   const handleGenerateQuiz = async (text: string, numQuestions: number) => {
     try {
-      console.log('Generating quiz with', numQuestions, 'questions');
-      const response = await axios.post('http://localhost:5000/generate-quiz', {
-        text: text,
-        num_questions: numQuestions,
-      });
-      const formattedQuestions: MCQ[] = response.data.questions.map((q: [string, string[], string]) => ({
-        questionStem: q[0],
-        answerChoices: q[1],
-        correctAnswer: q[2],
-      }));
-      setQuestions(formattedQuestions);
+      const quizQuestions = await generateQuiz(text, numQuestions);
+      setQuestions(quizQuestions);
     } catch (error) {
       console.error('Error generating quiz:', error);
     }
   };
 
+  const handleBackToMain = () => {
+    setShowForm(false);
+    setShowTextInputForm(false);
+  };
+
   return (
     <div className="app-container">
       <h1>Hệ Thống Tạo Đề Thi Trắc Nghiệm CNTT</h1>
-      <QuizForm onGenerateQuiz={handleGenerateQuiz} />
-      <QuestionList questions={questions} />
+      
+      {/* Show/hide QuizForm button */}
+      {!showForm && !showTextInputForm && (
+        <>
+          <button onClick={() => setShowForm(true)} className="action-button">
+            <AiOutlineForm style={{ marginRight: "8px" }} />
+            SPACY
+          </button>
+          <button onClick={() => setShowTextInputForm(true)} className="action-button">
+            <AiOutlineRobot style={{ marginRight: "8px" }} />
+            BERT
+          </button>
+        </>
+      )}
+
+      {/* Show the "Back to Main" button and hide forms */}
+      {(showForm || showTextInputForm) && (
+        <button onClick={handleBackToMain} className="action-button">
+          Trở về giao diện chính
+        </button>
+      )}
+
+      {/* Show QuizForm or QuestionList */}
+      {showForm && (
+        <>
+          <QuizForm onGenerateQuiz={handleGenerateQuiz} />
+          <QuestionList questions={questions} />
+        </>
+      )}
+
+      {/* Show TextInputForm */}
+      {showTextInputForm && (
+        <TextInputForm />
+      )}
     </div>
   );
 }
