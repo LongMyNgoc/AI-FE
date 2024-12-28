@@ -97,7 +97,7 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   text-align: center;
-  margin: 10px 0;
+  margin: 10px 10px 10px 0; /* Tạo khoảng cách giữa các nút */
 }
 
 button:hover {
@@ -145,3 +145,4 @@ p {
 strong {
   color: #4a90e2;
 }
+

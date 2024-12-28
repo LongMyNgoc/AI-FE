@@ -3,14 +3,16 @@ import { useState } from 'react';
 import QuizForm from './components/Spacy/QuizForm';
 import QuestionList from './components/Spacy/QuestionList';
 import TextInputForm from './components/Bert/TextInputForm';
+import T5Form from './components/T5/T5Form';
 import { generateQuiz } from './fetch/useFetchSpacy';
 import { MCQ } from './types';
-import { AiOutlineForm, AiOutlineRobot } from "react-icons/ai";
+import { AiOutlineForm, AiOutlineRobot, AiOutlineExperiment } from "react-icons/ai";
 
 function App() {
   const [questions, setQuestions] = useState<MCQ[]>([]);
   const [showForm, setShowForm] = useState<boolean>(false);
   const [showTextInputForm, setShowTextInputForm] = useState<boolean>(false);
+  const [showT5Form, setShowT5Form] = useState<boolean>(false);
 
   const handleGenerateQuiz = async (text: string, numQuestions: number) => {
     try {
@@ -24,6 +26,7 @@ function App() {
   const handleBackToMain = () => {
     setShowForm(false);
     setShowTextInputForm(false);
+    setShowT5Form(false);
   };
 
   return (
@@ -31,7 +34,7 @@ function App() {
       <h1>Hệ Thống Tạo Đề Thi Trắc Nghiệm CNTT</h1>
       
       {/* Show/hide QuizForm button */}
-      {!showForm && !showTextInputForm && (
+      {!showForm && !showTextInputForm && !showT5Form && (
         <>
           <button onClick={() => setShowForm(true)} className="action-button">
             <AiOutlineForm style={{ marginRight: "8px" }} />
@@ -41,11 +44,15 @@ function App() {
             <AiOutlineRobot style={{ marginRight: "8px" }} />
             BERT
           </button>
+          <button onClick={() => setShowT5Form(true)} className="action-button">
+            <AiOutlineExperiment style={{ marginRight: "8px" }} />
+            T5
+          </button>
         </>
       )}
 
       {/* Show the "Back to Main" button and hide forms */}
-      {(showForm || showTextInputForm) && (
+      {(showForm || showTextInputForm || showT5Form) && (
         <button onClick={handleBackToMain} className="action-button">
           Trở về giao diện chính
         </button>
@@ -60,9 +67,10 @@ function App() {
       )}
 
       {/* Show TextInputForm */}
-      {showTextInputForm && (
-        <TextInputForm />
-      )}
+      {showTextInputForm && <TextInputForm />}
+
+      {/* Show T5 Form */}
+      {showT5Form && <T5Form />}
     </div>
   );
 }
