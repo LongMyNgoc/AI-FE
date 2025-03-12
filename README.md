@@ -35,6 +35,9 @@ Hệ thống sẽ chạy trên **localhost**, bạn có thể truy cập bằng 
 - **Front-End (GitHub)**: https://github.com/LongMyNgoc/AI-React.git
 - **Front-End (Vercel)**: https://ai-react-eosin.vercel.app/
 
+## Video chạy chương trình
+- **Youtube**: https://youtu.be/wHyNzmeHIu8
+
 ## Đóng góp & Phát triển
 Mọi ý kiến đóng góp hoặc báo lỗi có thể được gửi qua hệ thống quản lý mã nguồn của dự án hoặc liên hệ với nhóm phát triển. Chúng tôi hoan nghênh mọi sự đóng góp để cải thiện hệ thống!
 
