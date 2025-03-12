@@ -1,50 +1,43 @@
-# React + TypeScript + Vite
+# Hệ thống tạo đề thi trắc nghiệm (FRONT-END)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Giới thiệu
+**Hệ thống tạo đề thi trắc nghiệm** là hệ thống tạo đề thi trắc nghiệm điền từ và trắc nghiệm a,b,c,d từ đoạn văn đưa vào bằng mô hình en_core_web_sm, t5 và BERT.
 
-Currently, two official plugins are available:
+## Tính năng chính 
+- **Mô hình en_core_web_sm**: Tạo đề thi trắc nghiệm dạng điền từ
+- **Mô hình T5**: Tạo đề thi trắc nghiệm a,b,c,d
+- **Mô hình BERT**: Tạo đáp án a,b,c,d từ đoạn văn và câu hỏi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Công nghệ sử dụng
+- **Flask**: Back-End
+- **Vercel**: Triển khai và chạy hệ thống trên môi trường production.
 
-## Expanding the ESLint configuration
+## Yêu cầu hệ thống
+- **Node.js** phiên bản **20.17.0** (Cần cài đặt trước khi chạy dự án)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Cài đặt và chạy dự án
+### 1. Cài đặt dependencies
+Chạy lệnh sau để cài đặt các thư viện cần thiết:
+```bash
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### 2. Khởi động server phát triển
+Chạy lệnh sau để khởi động dự án:
+```bash
+npm run dev
 ```
+
+Hệ thống sẽ chạy trên **localhost**, bạn có thể truy cập bằng trình duyệt để kiểm tra giao diện và tính năng.
+
+## Liên kết hệ thống
+- **Back-End (GitHub)**: https://github.com/LongMyNgoc/AI-React-BE.git
+- **Front-End (GitHub)**: https://github.com/LongMyNgoc/AI-React.git
+- **Front-End (Vercel)**: https://ai-react-eosin.vercel.app/
+
+## Đóng góp & Phát triển
+Mọi ý kiến đóng góp hoặc báo lỗi có thể được gửi qua hệ thống quản lý mã nguồn của dự án hoặc liên hệ với nhóm phát triển. Chúng tôi hoan nghênh mọi sự đóng góp để cải thiện hệ thống!
+
+## Thông tin liên hệ
+📧 Email: longmyngoc2004@gmail.com  
+🌐 Website: https://ai-react-eosin.vercel.app/
