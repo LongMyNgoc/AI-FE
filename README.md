@@ -1,4 +1,9 @@
 # Hệ thống tạo đề thi trắc nghiệm (FRONT-END)
+<p align="center">
+  <img src="public/en_core_web_sm.png" alt="en_core_web_sm" width="200" style="display: inline-block;">
+  <img src="public/T5.png" alt="T5" width="200" style="display: inline-block;">
+  <img src="public/BERT.png" alt="BERT" width="200" style="display: inline-block;">
+</p>
 
 ## Giới thiệu
 **Hệ thống tạo đề thi trắc nghiệm** là hệ thống tạo đề thi trắc nghiệm điền từ và trắc nghiệm a,b,c,d từ đoạn văn đưa vào bằng mô hình en_core_web_sm, t5 và BERT.
